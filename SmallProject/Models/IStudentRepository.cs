@@ -17,5 +17,10 @@
         IEnumerable<Student> GetFemaleStudents();
 
         IEnumerable<Student> GetSNameStudents();
+
+        int UpdateStudent(Student student);
+        int CreateStudent(Student student);
+        int RemoveStudent(Student student);
+
     }
 }

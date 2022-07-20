@@ -9,6 +9,12 @@
             this.appDbContext = appDbContext;
         }
 
+        public int CreateStudent(Student student)
+        {
+            appDbContext.Students.Add(student);
+            return appDbContext.SaveChanges();
+        }
+
         public IEnumerable<Student> GetAllStudents()
         {
         var students = appDbContext.Students;
@@ -83,6 +89,18 @@
         public IEnumerable<Student> GetTeamDStudents()
         {
             return GetAllStudents().Where(student => student.TeamName == "D");
+        }
+
+        public int RemoveStudent(Student student)
+        {
+            appDbContext.Students.Remove(student);
+            return appDbContext.SaveChanges();
+        }
+
+        public int UpdateStudent(Student student)
+        {
+            appDbContext.Students.Update(student);
+            return appDbContext.SaveChanges();
         }
     }
 }

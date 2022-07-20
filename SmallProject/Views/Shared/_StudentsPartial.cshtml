@@ -13,21 +13,25 @@
               <th scope="col">Last Name</th>
               <th scope="col">Age</th>
               <th scope="col">Team Name</th>
+              <th scope="col">Remove Students</th>
             </tr>
           </thead>
             <tbody>
             @foreach(var student in Model.students)
             {
                 <tr>
-                    <td><a href="">@student.FirstName</a></td>
+                    <td><a asp-controller="Student" asp-action="Details" asp-route-id="@student.StudentID">@student.FirstName</a></td>
                     <td>@student.LastName</td>
                     <td>@student.Age </td>
                     <td>@student.TeamName</td>
+                    <td><a asp-controller="Student" asp-action="Remove" asp-route-id="@student.StudentID">Remove</a><br /></td>
                 </tr>                  
 
             }  
             </tbody>
         </table>
+        <a asp-action="Create">Create</a><br />
+
         Total Student Count: @Model.count
     </body>
 </html>

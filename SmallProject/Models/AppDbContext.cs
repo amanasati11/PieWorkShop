@@ -44,7 +44,6 @@ namespace SmallProject.Models
                 new Student{StudentID=20, FirstName="Tisha",LastName="Varshney",Age=20, Gender="F", TeamName="D" },
                 new Student{StudentID=21, FirstName="Aman",LastName="Asati",Age=21, Gender="M", TeamName="D" }
                 });
-
         }
     }
 }
