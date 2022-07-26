@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SmallProject.Models;
 
@@ -10,9 +11,13 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 });
 
+// Identity
+builder.Services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<AppDbContext>();
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
 builder.Services.AddScoped<IStudentRepository, StudentRepository>();
 
 
@@ -31,10 +36,13 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Student}/{action=List}/{id?}");
+
+app.MapRazorPages();
 
 app.Run();

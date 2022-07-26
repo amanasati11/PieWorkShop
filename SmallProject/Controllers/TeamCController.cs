@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SmallProject.Models;
 using SmallProject.ViewModels;
 
@@ -13,6 +14,7 @@ namespace SmallProject.Controllers
             this.studentRepository = studentRepository;
         }
 
+        [Authorize]
         public ViewResult ListC()
         {
             var students = studentRepository.GetTeamCStudents();

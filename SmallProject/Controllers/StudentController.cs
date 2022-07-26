@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SmallProject.Models;
 using SmallProject.ViewModels;
 
@@ -74,7 +75,7 @@ namespace SmallProject.Controllers
             return RedirectToAction("List");
         }
 
-
+        [Authorize]
         public ViewResult GetMaleStudents()                        
         {
             var students = studentRepository.GetMaleStudents();
@@ -86,7 +87,7 @@ namespace SmallProject.Controllers
 
             return View(MaleCount);
         }
-
+        [Authorize]
         public ViewResult GetFemaleStudents()
         {
             var students = studentRepository.GetFemaleStudents();
@@ -99,6 +100,7 @@ namespace SmallProject.Controllers
             return View(FemaleCount);
         }
 
+        [Authorize]
         public ViewResult GetSNameStudents()
         {
             var students = studentRepository.GetSNameStudents();

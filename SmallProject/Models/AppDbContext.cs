@@ -1,8 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace SmallProject.Models
 {
-    public class AppDbContext: DbContext
+    public class AppDbContext: IdentityDbContext<IdentityUser>
+
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
@@ -25,11 +28,11 @@ namespace SmallProject.Models
                 new Student{StudentID=4, FirstName="Shraddha",LastName="Shraddha",Age=20, Gender="F", TeamName="A" },
                 new Student{StudentID=5, FirstName="Aishwarya",LastName="Verma",Age=20, Gender="F", TeamName="A" },
 
-                new Student{StudentID=6, FirstName="Shreya",LastName="",Age=20, Gender="F", TeamName="B" },
-                new Student{StudentID=7, FirstName="Nandhita",LastName="",Age=20, Gender="F", TeamName="B" },
-                new Student{StudentID=8, FirstName="Shashwat",LastName="",Age=20, Gender="M", TeamName="B" },
-                new Student{StudentID=9, FirstName="Siddarth",LastName="",Age=21, Gender="M", TeamName="B" },
-                new Student{StudentID=10, FirstName="Shriya",LastName="",Age=20, Gender="F", TeamName="B" },
+                new Student{StudentID=6, FirstName="Shreya",LastName="xyz",Age=20, Gender="F", TeamName="B" },
+                new Student{StudentID=7, FirstName="Nandhita",LastName="xyz",Age=20, Gender="F", TeamName="B" },
+                new Student{StudentID=8, FirstName="Shashwat",LastName="xyz",Age=20, Gender="M", TeamName="B" },
+                new Student{StudentID=9, FirstName="Siddarth",LastName="xyz",Age=21, Gender="M", TeamName="B" },
+                new Student{StudentID=10, FirstName="Shriya",LastName="xyz",Age=20, Gender="F", TeamName="B" },
 
                 new Student{StudentID=11, FirstName="Sriram",LastName="",Age=21, Gender="M", TeamName="C" },
                 new Student{StudentID=12, FirstName="Sneha",LastName="Sinha",Age=20, Gender="F", TeamName="C" },

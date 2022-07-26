@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SmallProject.Models;
 using SmallProject.ViewModels;
 
 namespace SmallProject.Controllers
+
 {
+    [Authorize]
     public class TeamAController : Controller
     {
         private readonly IStudentRepository studentRepository;
