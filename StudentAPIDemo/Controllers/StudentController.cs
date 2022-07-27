@@ -23,6 +23,15 @@ namespace StudentAPIDemo.Controllers
             return Ok(students);
         }
         [HttpGet]
+        [Route("GetStudent")]
+        public IActionResult GetStudent(int id)
+        {
+            var student = this.studentRepository.GetAllStudents().FirstOrDefault(student => student.StudentID == id);
+            if (student == null)
+                return NotFound("Student Not found For this ID");
+            return Ok(student);
+        }
+        [HttpGet]
         [Route("GetTeamAStudents")]
         public IActionResult GetTeamAStudents()
         {
@@ -84,6 +93,38 @@ namespace StudentAPIDemo.Controllers
                 .studentRepository
                 .GetStudentsWithS();
             return Ok(GetSNameStudents);
+        }
+        [HttpPost]
+        [Route("InsertStudent")]
+        public IActionResult InsertStudent(Student student)
+        {
+            var insertedStudent = this
+                .studentRepository
+                .InsertStudent(student);
+            return Ok(insertedStudent);
+        }
+        [HttpPut]
+        [Route("UpdateStudent")]
+        public IActionResult UpdateStudent(Student student)
+        {
+            var updatedStudent = this
+                .studentRepository
+                .UpdateStudent(student);
+            return Ok(updatedStudent);
+        }
+        [HttpDelete]
+        [Route("DeleteStudent")]
+        public IActionResult DeleteStudent(int studentID)
+        {
+            var student = this.studentRepository.GetAllStudents().FirstOrDefault(student => student.StudentID == studentID);
+            if(student == null)
+            {
+                return BadRequest("Student not found, try some other valid id");
+            }
+            var deletedStudent = this
+                .studentRepository
+                .DeleteStudent(studentID);
+            return Ok(deletedStudent);
         }
     }
 }

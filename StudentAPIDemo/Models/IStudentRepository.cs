@@ -19,6 +19,9 @@ namespace StudentAPIDemo.Models
         IEnumerable<Student> GetFemaleStudents();
 
         IEnumerable<Student> GetStudentsWithS();
+        Student InsertStudent(Student student);
+        Student UpdateStudent(Student student);
+        Student DeleteStudent(int studentID);
 
     }
 }
